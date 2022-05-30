@@ -30,23 +30,18 @@ console.log(start(100));
 //4.Write a function called "isUpperCase" that checks if the first letter of the string is uppercase.
 function isUpperCase(string1) {
   let results = string1.slice("");
-  if (results[0]) {
-  } else {
+  if (results.length == 0) {
     return false;
   }
-  if (results[0] == results[0].toUpperCase()) {
-    return true;
-  } else {
-    return false;
-  }
+
+  return results[0] == results[0].toUpperCase();
 }
 console.log(isUpperCase(""));
 
 //5.Write a function called "isAllUpperCase" that checks if all letters in the given string is uppercase.
 function isAllUpperCase(string1) {
   let results = string1.slice("");
-  if (results[0]) {
-  } else {
+  if (results.length == 0) {
     return false;
   }
   for (let d = 0; d < results.length; d++) {
@@ -62,9 +57,8 @@ console.log("isAllUpperCase: " + isAllUpperCase("abcd"));
 //6.Write a function called "position" that prints out the first uppercase letter and its index location. If not found, prints -1.
 function position(string1) {
   let results = string1.slice("");
-  if (results[0]) {
-  } else {
-    return false + " please your input string";
+  if (results.length == 0) {
+    return false;
   }
   for (let e = 0; e < results.length; e++) {
     if (results[e] == results[e].toUpperCase()) {
@@ -100,7 +94,7 @@ function findSamllerTotal(arr, int) {
   let results = 0;
   for (let g = 0; g < arr.length; g++) {
     if (arr[g] > int) {
-      results += arr[getSelection];
+      results += arr[g];
     }
   }
   return results;
