@@ -90,19 +90,19 @@
 
 //this keyword
 
-let wunyu = {
-  name: "Wunyu Lin",
-  //function declaration
-  speak() {
-    console.log("Hi, my name is " + this.name + "."); //此時this指向wunyu 這個object
-    console.log(this); //此時this指向wunyu object! 所以可以透過this 將他print出來
-  },
-  //arrow function expression 一般不會這樣寫
-  talking: () => {
-    console.log("Hi, my name is" + this.name); //此時this是指向window object，所以this.name沒有屬性
-    console.log(this); //此時this是指向window object, 所以可以透過 this 來 print window object出來
-  },
-};
+// let wunyu = {
+//   name: "Wunyu Lin",
+//   //function declaration
+//   speak() {
+//     console.log("Hi, my name is " + this.name + "."); //此時this指向wunyu 這個object
+//     console.log(this); //此時this指向wunyu object! 所以可以透過this 將他print出來
+//   },
+//   //arrow function expression 一般不會這樣寫
+//   talking: () => {
+//     console.log("Hi, my name is" + this.name); //此時this是指向window object，所以this.name沒有屬性
+//     console.log(this); //此時this是指向window object, 所以可以透過 this 來 print window object出來
+//   },
+// };
 
-wunyu.speak();
-wunyu.talking();
+// wunyu.speak();
+// wunyu.talking();
