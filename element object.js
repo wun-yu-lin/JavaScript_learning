@@ -61,3 +61,37 @@ console.log(mp2.classList.contains("blue")); //是否包含特定class, return t
 
 let myH1_A = document.querySelector("h1");
 console.log(myH1_A.getAttribute("id")); //return first
+
+// ## querySelector(), querySelectorAll()
+// All HTML element must have methods, 所有HTML element 都能使用
+//documnet.querySelector()
+let myP_document = document.querySelectorAll("p");
+console.log(myP_document);
+
+let body3 = document.querySelector("body");
+//element object querySelectorAll()
+let myP_p_section = body.querySelectorAll("p");
+console.log(myP_p_section);
+
+//remove
+let h1_remmove = document.querySelectorAll("h1");
+console.log(h1_remmove);
+h1_remmove.forEach((n) => {
+  n.remove();
+}); //remove all of h1 element
+
+// Style Objectd
+let button = document.querySelector("button");
+console.log(button.style);
+//inline styling
+button.style.backgroundColor = "green";
+button.style.color = "white";
+button.style.width = "5vw";
+button.style.height = "2vw";
+//inlining stylig > id > class
+
+//the same
+button.style = "background-Color:green; color: white; width:5vw; height:2vw";
+
+//clear styling
+button.style = "";
