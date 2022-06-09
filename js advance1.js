@@ -77,3 +77,8 @@ let arr8 = arr7; //arr8, arr7 指向相同記憶體位置!! 因此arr7.push()時
 arr7.push("wunyu");
 console.log(arr7); //[ 'apple', 'banana', 'papaya', 'orange', 'wunyu' ]
 console.log(arr8); //[ 'apple', 'banana', 'papaya', 'orange', 'wunyu' ]
+
+//create string by object syntex
+let str2 = new String("Wunyu lin");
+console.log(str2); //[String: 'Wunyu lin']
+console.log(typeof str2); //return object
