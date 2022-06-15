@@ -63,3 +63,100 @@ console.log((0.2 + 0.1).toFixed(2) == (0.3).toFixed(2)); // return true, 透過t
   let name = "wunyu Lin";
   console.log("Hi " + name);
 })();
+
+//constructing an object
+let wunyu = {
+  firstName: "wunyu",
+  age: 25,
+  gender: "male",
+  height: 167,
+  weight: 68,
+  friends: {
+    fullname: "emma",
+  },
+};
+
+//Destructing an Object with commerical methods
+// let firstName = wunyu.firstName;
+// let gender = wunyu.gender;
+// let firendName = wunyu.friends.fullname;
+// console.log(firendName + " s gender is " + gender + ".");
+// console.log("friends' s fullname is " + firendName);
+
+//Destructing an Object with syntex sugar
+// let { firstName, gender } = wunyu;
+// let { fullname } = wunyu.friends;
+// console.log(firstName + " s gender is " + gender + ".");
+// console.log("friends' s fullname is " + fullname);
+
+let input = prompt("Enter a month.");
+
+if (input == "January") {
+  alert("一月");
+} else if (input == "February") {
+  alert("二月");
+} else if (input == "March") {
+  alert("三月");
+} else if (input == "April") {
+  alert("四月");
+} else if (input == "May") {
+  alert("五月");
+} else if (input == "June") {
+  alert("六月");
+} else if (input == "July") {
+  alert("七月");
+} else if (input == "Augyst") {
+  alert("八月");
+} else if (input == "September") {
+  alert("九月");
+} else if (input == "October") {
+  alert("十月");
+} else if (input == "November") {
+  alert("十一月");
+} else if (input == "December") {
+  alert("十二月");
+} else {
+  alert("無法判調");
+}
+
+//switch expression
+switch (input) {
+  case "January":
+    alert("一月");
+    break;
+  case "February":
+    alert("二月");
+    break;
+  case "March":
+    alert("三月");
+    break;
+  case "April":
+    alert("四月");
+    break;
+  case "May":
+    alert("五月");
+    break;
+  case "June":
+    alert("六月");
+    break;
+  case "July":
+    alert("七月");
+    break;
+  case "Augyst":
+    alert("八月");
+    break;
+  case "September":
+    alert("九月");
+    break;
+  case "October":
+    alert("十月");
+    break;
+  case "November":
+    alert("十一月");
+    break;
+  case "December":
+    alert("十二月");
+    break;
+  default:
+    alert("無法判定");
+}
