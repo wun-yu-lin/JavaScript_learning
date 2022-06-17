@@ -7,3 +7,12 @@ let sayHi = () => {
 };
 
 sayHi();
+
+//filename
+console.log(__filename);
+//dirname
+console.log(__dirname);
+
+//require all module in folder
+let all_M = require("./module"); //require index.js of module folder
+console.log(all_M); //return { sayHi: [Function: sayHello], sayGoodbye: [Function: sayGoodbye] }
