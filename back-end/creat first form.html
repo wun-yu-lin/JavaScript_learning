@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>公司體溫回報系統</title>
+    <!--page icon-->
+    <link rel="shortcut icon" href="./pandaIcon.png" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+  </head>
+  <body>
+    <h1>&#42;公司體溫回報&#42;</h1>
+    <form action="" method="">
+      <!-- <label for="Myfile">請給工作證影本</label>
+      <input id="Myfile" type="file" name="Myfile" />
+      <br /> -->
+      <label for="myname"> 姓名:</label>
+      <input
+        id="myname"
+        type="text"
+        name="InputName"
+        placeholder="請輸入NT名稱"
+        class="redtext"
+        required
+      />
+      <br />
+      <input type="radio" name="gender" value="male" required />男性
+      <input type="radio" name="gender" value="Female" required />女性
+      <br />
+      <label for="city">所在位置</label>
+      <select name="city" id="city" required>
+        <option></option>
+        <option value="Hsinchu">新竹</option>
+        <option value="Taichung">台中</option>
+        <option value="Tainan">台南</option>
+      </select>
+      <br />
+      <label for="job">請問你的職位名稱</label>
+      <input list="joblist" type="text" id="job" name="job" required />
+      <datalist id="joblist">
+        <option value="ETE">作業員</option>
+        <option value="engineer">工程師</option>
+        <option value="manger">主管</option>
+      </datalist>
+
+      <br />
+      <label for="myid"> 工號:</label>
+      <input
+        id="myid"
+        type="number"
+        name="InputID"
+        minlength="6"
+        maxlength="6"
+        placeholder="6碼工號"
+        required
+      />
+      <br />
+      <label for="age">請問你幾歲:</label>
+      <input id="age" type="number" name="myage" min="18" max="150" required />
+      <br />
+      <!-- number 例子 -->
+      <label for="temp">請問你的體溫</label>
+      <input id="temp" type="number" name="myTemp" required step="0.1" />
+      <br />
+      <label for="myemail">email</label>
+      <input id="myemail" type="email" name="Inputemail" required />
+      <br />
+      <!-- checkbox 範例 -->
+      <input
+        type="checkbox"
+        id="checkbox"
+        name="staff"
+        value="staffYes"
+        checked
+      />
+      <label for="checkbox">請問你是台積員工嗎</label>
+
+      <br />
+      <!-- range範例 -->
+      <label for="">今天身體狀況打個分數</label>
+      0<input type="range" min="0" max="100" name="" value="" step="5" />100分
+      <br />
+      <hr />
+      <label for="pwd">password</label>
+      <input
+        id="pwd"
+        type="password"
+        name=""
+        value=""
+        minlength="8"
+        maxlength="16"
+        placeholder="密碼打這裡"
+      />
+      <br />
+      <br />
+      <label for="suggest"></label>
+      <textarea
+        name="suggestion"
+        id="suggest"
+        cols="30"
+        rows="10"
+        placeholder="對於此表單有任何建議嗎?"
+      ></textarea>
+      <br />
+
+      <button type="submit">提交表單</button>
+    </form>
+  </body>
+</html>
