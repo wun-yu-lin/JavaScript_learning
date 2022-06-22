@@ -12,7 +12,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/wunyu", (req, res) => {
-  res.send("You are on the wunyu's page.");
+  res.status(302);
+  res.sendFile(path.join(__dirname, "moved.html"));
+});
+
+//if no found page, run this code, sentFile (error.html)
+app.get("*", (req, res) => {
+  res.status(404);
+  console.log(res.statusCode);
+  res.sendFile(path.join(__dirname, "error.html"));
 });
 
 app.listen(3010, () => {
