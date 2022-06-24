@@ -7,7 +7,14 @@ const path = require("path");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs"); //檔案必須在views資料夾
+  //get data from database => an array of object
+  const obj = [
+    { name: "wunyu", age: 25, weight: 69 },
+    { name: "jili", age: 3, weight: 5.5 },
+    { name: "gulu", age: 3, weight: 7 },
+    { name: "emma", age: 18, weight: 40 },
+  ];
+  res.render("index.ejs", { obj }); //檔案必須在views資料夾
 });
 
 //query with get methods

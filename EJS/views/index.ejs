@@ -16,5 +16,25 @@
       <input type="number" name="age" id="age" />
       <button type="submit">Submit</button>
     </form>
+    <br />
+    <section>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>age</th>
+          <th>weight</th>
+        </tr>
+
+        <!-- craete table by forEach with an array of object -->
+        <% obj.forEach((n)=>{ %>
+        <tr>
+          <td><%=n.name %></td>
+          <td><%=n.age %></td>
+          <td><%=n.weight %></td>
+        </tr>
+
+        <% })%>
+      </table>
+    </section>
   </body>
 </html>

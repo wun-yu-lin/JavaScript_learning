@@ -7,3 +7,19 @@ body {
   background-color: rgba(9, 255, 255, 0.199);
   color: black;
 }
+
+table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  padding: 0.25rem 0.5rem;
+}
