@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Wunyu</title>
+  </head>
+  <body>
+    <h1>wunyu</h1>
+    <p>
+      <!-- EJS語法 -->
+      <%= name %>
+    </p>
+
+    <!-- 迴圈練習 -->
+    <!-- 有 = : 取得變數值
+    無 = : 當作JS code -->
+    <section>
+      <% for (let i=0; i<10;i++){ %>
+      <p><%= i %></p>
+      <% } %>
+    </section>
+  </body>
+</html>
