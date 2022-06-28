@@ -20,17 +20,63 @@ mongoose
   });
 
 //define a schema
+//type1
+// const studentSchema = new mongoose.Schema({
+//   name: String,
+//   age: Number,
+//   major: String,
+//   scholarship: {
+//     merit: Number,
+//     other: Number,
+//   },
+// });
+
+//type2
 const studentSchema = new mongoose.Schema({
-  name: String,
-  age: Number,
-  major: String,
+  name: {
+    type: String,
+    required: [true, "You has not into name property"], //設定不符合規定時，console.log出現的值
+    maxlength: [15, "Name is too long"],
+  },
+  age: {
+    type: Number,
+    max: 100,
+    min: 0,
+  },
+  major: {
+    type: String,
+    enum: ["Chem", "Electrical Engineering", "Computer science", "undecided"],
+    default: "undecided",
+  },
   scholarship: {
-    merit: Number,
-    other: Number,
+    merit: {
+      type: Number,
+    },
+    other: {
+      type: Number,
+    },
   },
 });
+
 //create a model for students, student = model
 const Student = mongoose.model("Student", studentSchema); //string 第一個字大寫，其他小寫。建立model後會自動變成 student
+
+const newStudent = new Student({
+  name: "ABCGDHEYEHDYUAAAAAAAAAAAAAAAAAAAAAHE",
+  age: 18,
+  major: "MS",
+  scholarship: { merit: "1400", other: "2000" },
+}); //error data type and without input name (required)
+//save newStudent to DB
+newStudent
+  .save()
+  .then(() => {
+    console.log("wunyu has been saved into DB");
+  })
+  .catch((e) => {
+    console.log("error has happpend.");
+    console.log(e);
+  });
 
 //create an object
 const wunyu = new Student({
