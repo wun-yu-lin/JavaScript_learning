@@ -1,0 +1,77 @@
+const express = require("express");
+const app = express();
+const ejs = require("ejs");
+const mongoose = require("mongoose");
+
+//connect to mongoDB
+mongoose
+  .connect("mongodb://localhost:27017/exampleDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  //if connected => .then
+  .then(() => {
+    console.log("connected to MongoDB.");
+  })
+  //if .catch => .catch
+  .catch((err) => {
+    console.log("connection failed.");
+    console.log(err);
+  });
+
+const studentSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "You has not into name property"], //設定不符合規定時，console.log出現的值
+    maxlength: [15, "Name is too long"],
+  },
+  age: {
+    type: Number,
+    max: 100,
+    min: 0,
+  },
+  major: {
+    type: String,
+    enum: [
+      "Chem",
+      "Electrical Engineering",
+      "Computer science",
+      "undecided",
+      "MS",
+    ],
+    default: "undecided",
+  },
+  scholarship: {
+    merit: {
+      type: Number,
+    },
+    other: {
+      type: Number,
+    },
+  },
+});
+//create a static methods
+studentSchema.statics.setOtherToZero = function () {
+  //this 指向 Student model
+  return this.updateMany({}, { "scholarship.other": 0 });
+};
+
+//create a model for students, student = model
+const Student = mongoose.model("Student", studentSchema); //string 第一個字大寫，其他小寫。建立model後會自動變成 student
+
+Student.setOtherToZero()
+  .then((msg) => {
+    console.log(msg);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.render("index.ejs");
+});
+
+app.listen(3080, () => {
+  console.log("server is running on port 3080.");
+});

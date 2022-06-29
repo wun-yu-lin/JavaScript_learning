@@ -68,15 +68,15 @@ const newStudent = new Student({
   scholarship: { merit: "1400", other: "2000" },
 }); //error data type and without input name (required)
 //save newStudent to DB
-newStudent
-  .save()
-  .then(() => {
-    console.log("wunyu has been saved into DB");
-  })
-  .catch((e) => {
-    console.log("error has happpend.");
-    console.log(e);
-  });
+// newStudent
+//   .save()
+//   .then(() => {
+//     console.log("wunyu has been saved into DB");
+//   })
+//   .catch((e) => {
+//     console.log("error has happpend.");
+//     console.log(e);
+//   });
 
 //create an object
 const wunyu = new Student({
@@ -88,6 +88,18 @@ const wunyu = new Student({
     other: 1300,
   },
 });
+
+Student.findOneAndUpdate(
+  { name: "emma" },
+  { age: 200 },
+  { new: true, runValidators: true }
+)
+  .then((msg) => {
+    console.log(msg);
+  })
+  .catch((e) => {
+    console.log("updata failed", e);
+  });
 
 //save wunyu to DB
 // wunyu
