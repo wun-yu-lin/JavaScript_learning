@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const https = require("https");
+const config = require("./config");
 //k to cel
 function convertKtoC(k) {
   return (k - 273.15).toFixed(2);
@@ -18,7 +19,7 @@ app.get("/:city", async (req, res) => {
   console.log(city);
 
   //connect to Wheater API
-  let myKey = "8f3c00148277c59e42ad7bd02cff42a9";
+  let myKey = config.OpenweatherKey();
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`;
   //get request by HTTP model of node.js
   https
