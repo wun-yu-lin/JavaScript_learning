@@ -21,12 +21,16 @@ app.get("/:city", async (req, res) => {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`;
   console.log(city);
   //node-fetch get weather API
-  await fetch(url)
-    .then((d) => d.json())
-    .then((djs) => {
-      let temp = convertKtoC(djs.main.temp);
-      res.render("wheater.ejs", { djs, temp });
-    });
+  // await fetch(url)
+  //   .then((d) => d.json())
+  //   .then((djs) => {
+  //     let temp = convertKtoC(djs.main.temp);
+  //     res.render("wheater.ejs", { djs, temp });
+  //   });
+  let data = await fetch(url);
+  let djs = await data.json();
+  let temp = convertKtoC(djs.main.temp);
+  res.render("wheater.ejs", { djs, temp });
 });
 
 app.listen(3000, () => {
