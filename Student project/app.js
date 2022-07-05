@@ -116,6 +116,20 @@ app.put("/students/edit/:id", async (req, res) => {
   }
 });
 
+//delete request
+app.delete("/students/delete/:id", (req, res) => {
+  let { id } = req.params;
+  Student.deleteOne({ id })
+    .then((msg) => {
+      console.log(msg);
+      res.send("Deleted successfully.");
+    })
+    .catch((e) => {
+      console.log(e);
+      console.log("Delete error");
+    });
+});
+
 app.get("/*", (req, res) => {
   res.status(404);
   res.send("Can not find the page.");
