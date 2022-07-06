@@ -70,23 +70,8 @@ app.post("/students", (req, res) => {
     });
 });
 
-//update data
-app.get("/students/edit/:id", async (req, res) => {
-  let { id } = req.params;
-  try {
-    let data = await Student.findOne({ id });
-    if (data !== null) {
-      res.render("edit.ejs", { data });
-    } else {
-      res.send(`Can not find ${id}`);
-    }
-  } catch (e) {
-    console.log(e);
-    res.send("error");
-  }
-});
-
-app.put("/students/edit/:id", async (req, res) => {
+//put request to API
+app.put("/students/:id", async (req, res) => {
   let { id, name, age, merit, other } = req.body;
   try {
     let d = await Student.findOneAndUpdate(
@@ -97,10 +82,43 @@ app.put("/students/edit/:id", async (req, res) => {
         runValidators: true,
       }
     );
-    res.redirect(`/students/${id}`);
-  } catch (e) {
-    console.log(e);
-    res.render("reject.ejs");
+    res.send({ message: "Successfully update a new student." });
+  } catch (err) {
+    res.status(404);
+    console.log(err);
+    res.send({ message: "error update data." });
+  }
+});
+
+class newData {
+  constructor() {}
+  setProperty(key, value) {
+    if (key !== "merit" && key !== "other") {
+      this[key] = value;
+    } else {
+      this[`scholarship.${key}`] = value;
+    }
+  }
+}
+//patch request to API
+app.patch("/students/:id", async (req, res) => {
+  let { id } = req.params;
+  let { name, age, merit, other } = req.body;
+  let newObject = new newData();
+  for (let property in req.body) {
+    newObject.setProperty(property, req.body[property]);
+  }
+  try {
+    let d = await Student.findOneAndUpdate({ id }, newObject, {
+      new: true,
+      runValidators: true,
+    });
+    console.log(d);
+    res.send({ message: "Successfully update (patch) a new student." });
+  } catch (err) {
+    res.status(404);
+    console.log(err);
+    res.send({ message: "error update (patch) data." });
   }
 });
 
