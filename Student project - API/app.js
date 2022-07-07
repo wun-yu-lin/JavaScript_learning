@@ -122,10 +122,23 @@ app.patch("/students/:id", async (req, res) => {
   }
 });
 
-//delete request
+//delete data by id request API
 app.delete("/students/delete/:id", (req, res) => {
   let { id } = req.params;
   Student.deleteOne({ id })
+    .then((msg) => {
+      console.log(msg);
+      res.send("Deleted successfully.");
+    })
+    .catch((e) => {
+      console.log(e);
+      console.log("Delete error");
+    });
+});
+
+//delete all data request API
+app.delete("/students/delete", (req, res) => {
+  Student.deleteMany({})
     .then((msg) => {
       console.log(msg);
       res.send("Deleted successfully.");
