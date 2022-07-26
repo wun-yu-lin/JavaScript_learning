@@ -1,40 +1,28 @@
-import React from "react";
-
-//event handling 1
-const buttonHandler1 = () => {
-  let date = new Date().toLocaleDateString();
-  alert(date);
-};
-
-//event handling 2
-const buttonHandler2 = (msg) => {
-  alert(msg);
-};
-
-//app.js
-// .addEventLister()
-
+import React, { useState } from "react";
+//Hooks => useRef, uselocation, useEffect, useState
 const App = () => {
+  //state
+  //[state名稱, function名稱]  function用來改變state
+  let [name, setName] = useState("Wunyu"); //useState設定預設state
+  const changeNameHandler = () => {
+    setName("emma");
+  };
   return (
     <div>
-      <form action="">
-        <input type="text" />
-        {/* button 加上 onClick後面加上 event handling 的 function */}
-        <button onClick={buttonHandler1}>Submit</button>
-      </form>
-
-      <br />
-      {/* 透過arrow function避免JS中，直接代入parameter時，function會直接執行的情況 */}
-      <form action="">
-        <input type="text" />
-        <button
-          onClick={() => {
-            buttonHandler2("Hello");
-          }}
-        >
-          Alart hello
-        </button>
-      </form>
+      <h1 id="myName">{name}</h1>
+      <button onClick={changeNameHandler}>ChangeName</button>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
+      <p>{name}</p>
     </div>
   );
 };
