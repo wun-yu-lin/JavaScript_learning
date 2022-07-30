@@ -1,13 +1,19 @@
-import React, { useState } from "react";
-import Create from "./Create";
-import Info from "./Info";
+import React, { useState, useEffect } from "react";
 import "./styles/css/style.css";
 const App = () => {
-  let [msgs, setMsg] = useState([]);
+  let [name, setName] = useState("");
+  const changeName = () => {
+    setName("emma");
+  };
+
+  //useEffect
+  useEffect(() => {
+    console.log("useEffect function is invoked");
+  }, [name]);
   return (
     <div>
-      <Create msgs={msgs} setMsg={setMsg} />
-      <Info msgs={msgs} setMsg={setMsg} />
+      <h1>{name}</h1>
+      <button onClick={changeName}>Change Name</button>
     </div>
   );
 };
